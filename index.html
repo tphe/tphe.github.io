@@ -6,7 +6,15 @@
 </svg>
 <script>
 async function init() {
-data = await d3.csv("/summarydata.csv")
+data = await d3.csv("/summarydata.csv").then(function(data) {
+  data.forEach(function(d) {
+    d.Deaths = +d.Deaths;
+    d.Population = +d.Population;
+    d.Rate  = +d.Rate;
+  });
+  console.log(data[0]);
+});
+  
 var data12 = [4,8,15,16,23,42];
   
 x=d3.scaleBand().domain([0,1,2,3,4,5]).range([0,200]);
