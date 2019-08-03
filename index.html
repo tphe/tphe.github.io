@@ -1,4 +1,7 @@
 <html>
+  <p>This chart shows the rates of death per 100,000 people in the US due to guns. </br> 
+The comparison of categories is meaningful by itself, but looking at the data at this level obscures some detail. </br>
+Click the button to proceed</p>
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <style> rect {fill: lightblue; stroke: black; }</style>
 <body onload='init()'>
@@ -6,6 +9,7 @@
 </svg>
 <script>
 var dataout;
+var slide = 1;
 async function init() {
 var data = await d3.csv("/summarydata.csv").then(function(data) {
   data.forEach(function(d) {
@@ -44,7 +48,24 @@ d3.select('svg')
 
 d3.select("svg").append("g").attr("transform","translate("+50+","+50+")").call(d3.axisLeft(ys));
 d3.select("svg").append("g").attr("transform","translate("+50+","+250+")").call(d3.axisBottom(x));
+  
+function nextslid() {
+  if (slide == 1) {
+    d3.select("p").html = ""
+    d3.select("svg").html = ""
+  }
+  else {
+  }
+  slide = slide + 1
+}
+  
 }
   </script>
+
+<div class="btns">
+    <button onclick="nextslid()">
+        Next
+    </button>
+</div>
 </body>
 </html>
