@@ -25,7 +25,6 @@ yrange = [200,0];
 
 ys = d3.scaleLinear().domain(ydomain).range(yrange);
   
-dprep = 
 
 d3.select('svg')
 .attr("width", 200 + 2*50).attr("height", 200 + 2* 50).append("g").attr("transform", "translate("+50+","+50+")")
@@ -34,7 +33,7 @@ d3.select('svg')
     .attr('x',function(d,i){return x(d.Intent);})
     .attr('y',function(d,i) {return ys(d.Rate);})
     .attr('width', 100/3)
-    .attr('height',function(d,i) {return 200-ys(d.Rate);})
+    .attr('height',function(d,i) {return 200-ys(d.Rate);});
 
 
 
