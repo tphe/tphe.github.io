@@ -114,10 +114,10 @@ function nextslid() {
         fdata = dataout.filter(function(d) { return d.Gender == "None selected" && d.Race != "None selected" && d.Age == "None selected" && d.Intent == rFilt;});
         updateFunc(fdata);
         };    
-    
-    var dropdown = d3.select("select").enter().append("select").on("change", dropdownChange);
-
-    dropdown.selectAll("option").data(fdata).enter().append("option")
+    d3.select("button").style("visibility: hidden");
+    d3.select("select").on("change", dropdownChange);
+    d3.select("select").style("visibility: visible");
+    d3.select("select").selectAll("option").data(fdata).enter().append("option")
        .attr("value", ["Accident", "Homicide", "Suicide", "Unknown"])
        .text(["Accident", "Homicide", "Suicide", "Unknown"]);
      
@@ -133,6 +133,10 @@ function nextslid() {
     <button onclick="nextslid()">
         Next
     </button>
+</div>
+  <div class="drpdwn">
+    <select  style="visibility: hidden">
+    </select>
 </div>
 
 </body>
