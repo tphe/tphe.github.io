@@ -103,6 +103,9 @@ function nextslid() {
         .attr('width', 100/3)
         .attr('height',function(d,i) {return 200-ys(d.Rate);});
     d3.select("svg").append("g").attr("transform","translate("+50+","+50+")").call(d3.axisLeft(ys));
+    d3.select("svg").append("g").attr("class", "x axis").attr("transform", "translate(0," + height + ")")
+     .call(x).selectAll("text").style("text-anchor", "end").attr("dx", "-.8em")
+     .attr("dy", ".15em").attr("transform", "rotate(-65)");
     }
 
 
@@ -117,11 +120,17 @@ function nextslid() {
     d3.select("button").style("visibility", "hidden");
     d3.select("select").on("change", dropdownChange);
     d3.select("select").style("visibility", "visible");
-    d3.select("select").selectAll("option").data(fdata).enter().append("option")
-       .attr("value", ["Accident", "Homicide", "Suicide", "Unknown"])
-       .text(["Accident", "Homicide", "Suicide", "Unknown"]);
+    d3.select("select").selectAll("option").data(["Accident", "Homicide", "Suicide", "Unknown"]).enter().append("option")
+       .attr("value", function(d) {return d;})
+       .text(function(d) {return d;});
      
-    
+    d3.select("svg").append("g").attr("class", "x axis").attr("transform", "translate(0," + height + ")")
+     .call(x)
+     .selectAll("text")  
+     .style("text-anchor", "end")
+     .attr("dx", "-.8em")
+     .attr("dy", ".15em")
+     .attr("transform", "rotate(-65)");
     
   }
   slide = slide + 1;
