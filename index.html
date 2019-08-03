@@ -51,12 +51,13 @@ d3.select("svg").append("g").attr("transform","translate("+50+","+250+")").call(
   
 function nextslid() {
   if (slide == 1) {
-    d3.select("p").html = ""
-    d3.select("svg").html = ""
+    d3.select("p").html = "";
+    d3.select("svg").html = "";
   }
   else {
   }
-  slide = slide + 1
+  slide = slide + 1;
+  return false;
 }
   
 }
