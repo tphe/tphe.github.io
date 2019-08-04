@@ -56,7 +56,7 @@ d3.select("svg").append("g").attr("transform","translate("+50+","+250+")").call(
     function updateFunc(dat) {
       fdata = dat;
       x=d3.scaleBand().domain(fdata.map(function(d) { return d.Race; })).range([0,200]);
-      ydomain = [0,25];
+      ydomain = [0,20];
       yrange = [200,0];
 
       ys = d3.scaleLinear().domain(ydomain).range(yrange);
@@ -88,7 +88,7 @@ function nextslid() {
     x=d3.scaleBand().domain(fdata.map(function(d) { return d.Race; })).range([0,200]);
     xdomain = [0,5];
     xrange = [0,200];
-    ydomain = [0,25];
+    ydomain = [0,20];
     yrange = [200,0];
 
     ys = d3.scaleLinear().domain(ydomain).range(yrange);                    
