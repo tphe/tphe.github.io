@@ -56,8 +56,6 @@ d3.select("svg").append("g").attr("transform","translate("+50+","+250+")").call(
     function updateFunc(dat) {
       fdata = dat;
       x=d3.scaleBand().domain(fdata.map(function(d) { return d.Race; })).range([0,200]);
-      #xdomain = [0,5];
-      #xrange = [0,200];
       ydomain = [0,25];
       yrange = [200,0];
 
@@ -69,8 +67,6 @@ d3.select("svg").append("g").attr("transform","translate("+50+","+250+")").call(
         .attr('y',function(d,i) {return ys(d.Rate);})
         .attr('width', 100/3)
         .attr('height',function(d,i) {return 200-ys(d.Rate);});
-    #d3.select("svg").append("g").attr("transform","translate("+50+","+50+")").call(d3.axisLeft(ys));
-    #d3.select("svg").append("g").attr("transform","translate("+50+","+250+")").call(d3.axisBottom(x));
     }
 
    var dropdownChange = function() {
