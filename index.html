@@ -109,7 +109,7 @@ function nextslid() {
     
     d3.select("p").html("Explore the data yourself by selecting drilldown values from the dropdown menu.");
     var dropdownChange = function() {
-        var rFilt = d3.select(this).property('value'),
+        var rFilt = d3.select(this).property('value');
         fdata = dataout.filter(function(d) { return d.Gender == "None selected" && d.Race != "None selected" && d.Age == "None selected" && d.Intent == rFilt;});
         updateFunc(fdata);
         };    
