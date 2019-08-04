@@ -114,7 +114,8 @@ function nextslid() {
     d3.select("select").style("visibility", "visible");
     d3.select("select").selectAll("option").data(["Accident", "Homicide", "Suicide", "Unknown"]).enter().append("option")
        .attr("value", function(d) {return d;})
-       .text(function(d) {return d;});
+       .text(function(d) {return d;})
+       .attr("selected", function(d) {return if (d == "Homicide") {return "selected"}};
     
     
     
