@@ -74,6 +74,12 @@ d3.select("svg").append("g").attr("transform","translate("+50+","+250+")").call(
     d3.select("svg").append("g").attr("transform","translate("+50+","+50+")").call(d3.axisLeft(ys));
     d3.select("svg").append("g").attr("transform","translate("+50+","+250+")").call(d3.axisBottom(x));
     }
+
+   var dropdownChange = function() {
+        var rFilt = d3.select(this).property('value');
+        fdata = dataout.filter(function(d) { return d.Gender == "None selected" && d.Race != "None selected" && d.Age == "None selected" && d.Intent == rFilt;});
+        updateFunc(fdata);
+        };  
   
 function nextslid() {
   if (slide == 1) {
@@ -108,11 +114,7 @@ function nextslid() {
   else {
     
     d3.select("p").html("Explore the data yourself by selecting drilldown values from the dropdown menu.");
-    var dropdownChange = function() {
-        var rFilt = d3.select(this).property('value');
-        fdata = dataout.filter(function(d) { return d.Gender == "None selected" && d.Race != "None selected" && d.Age == "None selected" && d.Intent == rFilt;});
-        updateFunc(fdata);
-        };    
+  
     d3.select("button").style("visibility", "hidden");
     d3.select("select").on("change", dropdownChange);
     d3.select("select").style("visibility", "visible");
